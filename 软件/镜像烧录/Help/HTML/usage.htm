@@ -1,0 +1,237 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<!-- saved from url=(0029)http://www.helpandmanual.com/ -->
+<head>
+   <title>Usage</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+<!-- Redirect browser to frame page if page is not in the content frame. -->
+<script type="text/javascript">
+<!--
+if (location.search.lastIndexOf("toc=0")<=0) {
+  if (parent.frames.length==0) { parent.location.href="index.html?usage.htm"; }
+  else { parent.quicksync('a2'); }
+}
+//-->
+</script>
+<script type="text/javascript" src="highlight.js"></script></head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;" onload="highlight();">
+<div id="hmpopupDiv" style="visibility:hidden; position:absolute; z-index:1000; "></div>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#649CCC">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Heading1"><span class="f_Heading1">Using imageUSB</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="introduction_and_overview.htm">Top</a>&nbsp;
+     <a href="introduction_and_overview.htm">Previous</a>&nbsp;
+     <a href="system_requirements.htm">Next</a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p><span style="font-size: 14pt; font-weight: bold;">imageUSB's .bin File Format:</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 49px;"> imageUSB's .bin files have a 512-byte header added to the beginning of the raw image. </p>
+<p style="margin: 0px 0px 0px 49px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 49px;"><span style="font-weight: bold;">Header Format:</span></p>
+<p style="margin: 0px 0px 0px 49px;">&nbsp;</p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 49px;"><table width="85%" cellspacing="0" cellpadding="0" border="0" style="border: none; border-spacing:0px;">
+<tr style="text-align:left;vertical-align:top;">
+<th valign="top" bgcolor="#99ccff" style="background-color:#99ccff;"><p><span style="font-weight: bold;">Offset</span></p>
+</th>
+<th valign="top" bgcolor="#99ccff" style="background-color:#99ccff;"><p><span style="font-weight: bold;">Size (bytes)</span></p>
+</th>
+<th valign="top" bgcolor="#99ccff" style="background-color:#99ccff;"><p><span style="font-weight: bold;">Description</span></p>
+</th>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top"><p>0</p>
+</td>
+<td valign="top"><p>32</p>
+</td>
+<td valign="top"><p>Program name string "imageUSB" (wchar + null terminator)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top"><p>32</p>
+</td>
+<td valign="top"><p>4</p>
+</td>
+<td valign="top"><p>Program version major integer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top"><p>36</p>
+</td>
+<td valign="top"><p>4</p>
+</td>
+<td valign="top"><p>Program version minor integer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top"><p>40</p>
+</td>
+<td valign="top"><p>4</p>
+</td>
+<td valign="top"><p>Program version build integer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top"><p>44</p>
+</td>
+<td valign="top"><p>4</p>
+</td>
+<td valign="top"><p>Program version revision integer</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top"><p>48</p>
+</td>
+<td valign="top"><p>8</p>
+</td>
+<td valign="top"><p>Image length in bytes (excluding header, unsigned long long)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top"><p>56</p>
+</td>
+<td valign="top"><p>8</p>
+</td>
+<td valign="top"><p>Image checksum value* (deprecated, unsigned long long, kept for compatibility)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top"><p>64</p>
+</td>
+<td valign="top"><p>66</p>
+</td>
+<td valign="top"><p>MD5 checksum* (wchar + null terminator)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top"><p>130</p>
+</td>
+<td valign="top"><p>82</p>
+</td>
+<td valign="top"><p>SHA1 checksum* (wchar + null terminator)</p>
+</td>
+</tr>
+<tr style="text-align:left;vertical-align:top;">
+<td valign="top"><p>212</p>
+</td>
+<td valign="top"><p>300</p>
+</td>
+<td valign="top"><p>Not used - reserved for future use</p>
+</td>
+</tr>
+</table>
+</div>
+<p style="margin: 0px 0px 0px 49px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 49px;">*The checksum values stored in the header are excluding the header and only of the raw image. Starting with Version 1.1.1003, the checksum method was updated to use MD5 and SHA1. Any previous images created with prior versions of imageUSB, will be verified using the old checksum method.</p>
+<p style="margin: 0px 0px 0px 49px;">&nbsp;</p>
+<p><span style="font-size: 14pt; font-weight: bold;">Log Output:</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 49px;">A log is kept at the bottom of the program, it will display status messages, errors, and any other relevant information. Starting imageUSB with the "-l" command line argument will save a log. The filename for the logfile is "imageUSB.log" and can be found in the same directory as the executable.</p>
+<p style="margin: 0px 0px 0px 49px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 49px;">Debug information (useful to the developers to debug problems) can also be logged by starting imageUSB with the "-d" command line argument. It will save to the same logfile, "imageUSB.log".</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 14pt; font-weight: bold;">Writing to USB Flash Drive (UFD):</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 49px;"><span style="font-weight: bold;">Before Starting:</span></p>
+<p style="margin: 0px 0px 0px 49px;">Backup the USB Flash Drive contents to a hard disk drive. &nbsp;This process will overwrite the USB drive selected, so remove any other removable drives on the system to reduce the likelihood of mistakes. "Write to UFD" supports writing a single image file to multiple drives at the same time.</p>
+<p style="margin: 0px 0px 0px 49px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 49px;"><span style="font-weight: bold;">Setting Up:</span></p>
+<p style="margin: 0px 0px 0px 49px;">Step 1: imageUSB will display a list of available USB drives. Selecting the corresponding check box next to each drive letter will select the drive to be acted on.</p>
+<p style="margin: 0px 0px 0px 49px;">Step 2: Select "Write to UFD" to write an image (.bin/.iso) file specified in <span style="font-weight: bold;">Step 3</span> to the selected drives in <span style="font-weight: bold;">Step 1</span>.</p>
+<p style="margin: 0px 0px 0px 49px;">Step 3: Select the image (.bin) file to be written to the selected USB drives in <span style="font-weight: bold;">Step 1</span>.</p>
+<p style="margin: 0px 0px 0px 49px;">Step 4: When ready, click the "Write" button. (<span style="font-weight: bold; color: #ff0000;">NOTE</span>: Be very careful that the drives you selected are the ones to write to, any contents originally on those drive will be destroyed.)</p>
+<p style="margin: 0px 0px 0px 49px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 49px;"><span style="font-weight: bold;">Available Options:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 49px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial'; color: #000000;">&#8226;</span></td><td>"Post Image Verification" will perform verification of the contents on the UFD afterwards. Image verification may double the normal imaging time.</td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 49px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial'; color: #000000;">&#8226;</span></td><td>"Extend Partition" - If destination drive is larger than the source image, imageUSB will will try to extend the last partition to fill the remaining space on the drive. This is only supported if image to be written to the USB drive contains a single partition with an NTFS filesystem.</td></tr></table></div><p style="margin: 0px 0px 0px 49px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 49px;"><span style="font-weight: bold;">During imaging:</span></p>
+<p style="margin: 0px 0px 0px 49px;">While imaging is taking place, the progress bar will display the overall progress. The progress bar takes into account both the write and verify process of writing the UFD. Individual drive status can be seen under the "Status" column for each drive.</p>
+<p style="margin: 0px 0px 0px 49px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 49px;"><span style="font-weight: bold;">Aborting:</span></p>
+<p style="margin: 0px 0px 0px 49px;">After imaging has started, the "Write to UFD" button will be relabeled "Abort". We recommend that you <span style="font-weight: bold;">NOT</span> use the "Abort" button. Aborting will stop the imaging process and any drives that are not completed will &nbsp;be rendered unreadable. To fix the unreadable drives, you will need to reformat them (e.g. in Windows, right-click the drive and choose "Format..." from the menu. ).</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 14pt; font-weight: bold;">Create from USB Flash Drive (UFD):</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-weight: bold;">Before Starting:</span></p>
+<p style="margin: 0px 0px 0px 48px;">imageUSB (starting with 1.1.1003) supports the simultaneous creation of images of multiple drives. If more than one drive is selected, the naming will be based on the base name given in <span style="font-weight: bold;">Step 3</span>. The images will be &nbsp;named with "_nnn" added to the base name and before the extension, starting with "_000" (i.e. test.bin will be become test_000.bin, test_001.bin, test_002.bin, ..., test_00n.bin for up to n drives). <span style="font-weight: bold; color: #ff0000;">CAUTION</span>: If the directory where the image is to be written to already contains a file with the same filename, it will be OVERWRITTEN. It is best to save images to an empty directory.</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-weight: bold;">Setting Up:</span></p>
+<p style="margin: 0px 0px 0px 48px;">Step 1: imageUSB will display a list of available USB drives. Check the corresponding check box next to each drive letter will select the drive to be acted on. </p>
+<p style="margin: 0px 0px 0px 48px;">Step 2: Select "Create from UFD" to create an image (.bin) file specified in <span style="font-weight: bold;">Step 3</span> from the selected drive in <span style="font-weight: bold;">Step 1</span>. Check the "Post Image Verification" box for verification of the contents of the image afterwards. Image verification may double the normal imaging time.</p>
+<p style="margin: 0px 0px 0px 48px;">Step 3: Enter in the filename and location where the image (.bin) file will be written to. See "Before Starting" above for naming convention used.</p>
+<p style="margin: 0px 0px 0px 48px;">Step 4: When ready, click the "Create to UFD" button.</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-weight: bold;">During imaging:</span></p>
+<p style="margin: 0px 0px 0px 48px;">While imaging is taking place, the progress bar will display the overall progress. A status for the drive is also shown under the "Status" column in the list in <span style="font-weight: bold;">Step 1</span>.</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-weight: bold;">Aborting:</span></p>
+<p style="margin: 0px 0px 0px 48px;">After imaging has started, the "Create" button will be relabeled "Abort". We recommend that you not use the "Abort" button. Aborting will stop the imaging process and the image file will be incomplete.</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-weight: bold;">After imaging:</span></p>
+<p style="margin: 0px 0px 0px 48px;">Each drive imaged will also have an accompanying log created in the same directory. The name of the log will be the same as the image but with ".log" appended to the filename. </p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p><span style="font-size: 14pt; font-weight: bold;">Zero USB Flash Drive (UFD):</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 49px;"><span style="font-weight: bold;">Before Starting:</span></p>
+<p style="margin: 0px 0px 0px 49px;">Backup the USB Flash Drive contents to a hard disk drive. &nbsp;This process will overwrite the USB drive selected, so remove any other removable drives on the system to reduce the likelihood of mistakes. Zeroing is the act of writing all byte 0 to the contents of the drive.</p>
+<p style="margin: 0px 0px 0px 49px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 49px;"><span style="font-weight: bold;">Setting Up:</span></p>
+<p style="margin: 0px 0px 0px 49px;">Step 1: imageUSB will display a list of available USB drives. Selecting the corresponding check box next to each drive letter will select the drive to be acted on.</p>
+<p style="margin: 0px 0px 0px 49px;">Step 2: Select "Zero USB drive" to wipe the contents of the USB drives selected in <span style="font-weight: bold;">Step 1</span>. </p>
+<p style="margin: 0px 0px 0px 49px;">Step 3: Skip.</p>
+<p style="margin: 0px 0px 0px 49px;">Step 4: When ready, click the "Zero" button. (<span style="font-weight: bold; color: #ff0000;">NOTE</span>: Be very careful that the drives you selected are the ones to zero, any contents originally on those drive will be destroyed.)</p>
+<p style="margin: 0px 0px 0px 49px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 49px;"><span style="font-weight: bold;">Available Options:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 49px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 10pt; font-family: 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial'; color: #000000;">&#8226;</span></td><td>"Boot Sector Only" will only wipe the Master Boot Record and GUID partition table (GPT) entries on the drive. This will reduce the time necessary to wipe drive.</td></tr></table></div><p style="margin: 0px 0px 0px 49px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-weight: bold;">During Zeroing:</span></p>
+<p style="margin: 0px 0px 0px 48px;">While Zeroing is taking place, the progress bar will display the overall progress. A status for the drive is also shown under the "Status" column in the list in <span style="font-weight: bold;">Step 1</span>.</p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-weight: bold;">Aborting:</span></p>
+<p style="margin: 0px 0px 0px 48px;">After imaging has started, the "Zero" button will be relabeled "Abort". We recommend that you not use the "Abort" button. Aborting will stop the imaging process and the drive may be left unresponsive.</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-weight: bold;">After Zeroing:</span></p>
+<p style="margin: 0px 0px 0px 48px;">You may need to re-insert the flash drive for Windows to recognize drive and prompt to format.</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p><span style="font-size: 14pt; font-weight: bold;">Reformat USB Flash Drive (UFD):</span></p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 49px;"><span style="font-weight: bold;">Before Starting:</span></p>
+<p style="margin: 0px 0px 0px 49px;">Backup the USB Flash Drive contents to a hard disk drive. &nbsp;This process will zero the boot sector of the USB drive selected and try to reformat it, so remove any other removable drives on the system to reduce the likelihood of mistakes. Supported only on systems with Windows Vista or Later.</p>
+<p style="margin: 0px 0px 0px 49px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 49px;"><span style="font-weight: bold;">Setting Up:</span></p>
+<p style="margin: 0px 0px 0px 49px;">Step 1: imageUSB will display a list of available USB drives. Selecting the corresponding check box next to each drive letter will select the drive to be acted on.</p>
+<p style="margin: 0px 0px 0px 49px;">Step 2: Select "Reformat USB drive" to wipe the contents of the USB drives selected in <span style="font-weight: bold;">Step 1</span>. </p>
+<p style="margin: 0px 0px 0px 49px;">Step 3: Skip.</p>
+<p style="margin: 0px 0px 0px 49px;">Step 4: When ready, click the "Reformat" button. (<span style="font-weight: bold; color: #ff0000;">NOTE</span>: Be very careful that the drives you selected are the ones to zero, any contents originally on those drive will be destroyed.)</p>
+<p style="margin: 0px 0px 0px 49px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-weight: bold;">During Reformatting:</span></p>
+<p style="margin: 0px 0px 0px 48px;">While Reformatting is taking place, a status for the drive is also shown under the "Status" column in the list in <span style="font-weight: bold;">Step 1</span>.</p>
+<p>&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-weight: bold;">Aborting:</span></p>
+<p style="margin: 0px 0px 0px 48px;">After imaging has started, the "Reformat" button will be relabeled "Abort". The Abort action however is not allowed.</p>
+<p style="margin: 0px 0px 0px 48px;">&nbsp;</p>
+<p style="margin: 0px 0px 0px 48px;"><span style="font-weight: bold;">After imaging:</span></p>
+<p style="margin: 0px 0px 0px 48px;">If successful, the drive will reclaim any unused drive space and formatted with NTFS filesystem.</p>
+
+</td></tr></table>
+
+</body>
+</html>
