@@ -13,6 +13,6 @@
 - mnist_cnn.tcl
 - mnist_cnn.hwh
 
-这三个文件将在上板时被用到。这三个文件可以在[这里](../../projects/VIvado/out)找到
+这三个文件将在上板时被用到。这三个文件可以在[这里](../../projects/Vivado/out)找到
 
 ### 2.1 创建Vivado项目
