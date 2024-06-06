@@ -7,13 +7,13 @@
 
 - main.cpp
 
-这三个文件均可以在src文件夹中找到。前两个文件用于生成IP核，最后一个文件用于验证正确性。
+这三个文件均可以在[src文件夹](../../src)中找到。前两个文件用于生成IP核，最后一个文件用于验证正确性。
 
 你将得到：
 
-- export.zip
+- IP_Core.zip
 
-即用于卷积操作的IP核。
+即用于卷积操作的IP核。如果你实在懒得去做实验，也可以在[这里](../../projects/Vivado HLS/out)直接找到该文件。
 
 ## 步骤
 
@@ -86,14 +86,92 @@
 <center><img src="../pictures/step1/1-11.png" width = 300></center>
 <center>图1-11 开始debug</center>
 
-&emsp;&emsp;点击“OK”按钮，将自动进入跟Eclipse一样的Debug视图。可在代码行数的左侧空白处双击以添加断点，如图2-11所示。
+&emsp;&emsp;点击“OK”按钮，将自动进入跟Eclipse一样的Debug视图。可在代码行数的左侧空白处双击以添加断点，如图1-12所示。
 
 <center><img src="../pictures/step1/1-12.png" width = 450></center>
 <center>图1-12 添加断点</center>
 
-&emsp;&emsp;点击工具条中的Step Into(F5)或Step Over(F6)按钮，开始debug。此时，可在右上方的Variable窗口查看变量的值，如图2-12所示。
+&emsp;&emsp;点击工具条中的Step Into(F5)或Step Over(F6)按钮，开始debug。此时，可在右上方的Variable窗口查看变量的值，如图1-13所示。
 
 <center><img src="../pictures/step1/1-13.png"></center>
 <center>图1-13 debug时查看变量的值</center>
 
-&emsp;&emsp;debug完成后，点击图2-12左上角形如红色正方形的按钮，或用快捷键Ctrl+F2结束调试。此时，再点击图2-12右上角的Synthesis按钮，回到图2-4所示的主界面/综合界面。
+&emsp;&emsp;debug完成后，点击图1-13左上角形如红色正方形的按钮，或用快捷键Ctrl+F2结束调试。此时，再点击图1-13右上角的Synthesis按钮，回到图1-5所示的主界面/综合界面。
+
+### 1.5 综合/Synthesis
+
+​	综合前，需要为`conv_core`项目添加Directive/原语，以指定顶层模块所对应的硬件模块的IO信号所使用的总线协议、综合时所使用的并行优化策略（如流水线、循环展开）等。
+
+&emsp;&emsp;Directive的添加有2种方法。第一种方法是通过图形化界面添加。添加时，需要在Outline窗口处点击打开Directive标签页，并在相应的函数上右键添加Directive，如图1-14所示。
+
+<center><img src="../pictures/step1/1-14.png" width = 380></center>
+<center>图1-14 用图形化界面添加Directive</center>
+
+&emsp;&emsp;第二种方法是直接在代码中插入形如`#pragma HLS xxx`的制导语句，如图1-15所示。
+
+<center><img src="../pictures/step1/1-15.png"></center>
+<center>图1-15 直接在代码中添加Directive</center>
+
+!!! hint "小提示 :bulb:"
+    &emsp;&emsp;在图1-15中，每一个制导语句都指定了一个端口的总线类型、主从属性以及允许的最大数据深度等信息。例如，第一行指定了`feature_out`将作为AXI总线的从端口，且最大深度为4294967295。
+
+&emsp;&emsp;接着，可用同样的方法设置并行优化策略。
+
+!!! info "补充说明 :mega:"
+    &emsp;&emsp;此处暂不添加优化语句。在后续的实验中，将会再讲解如何优化。
+
+&emsp;&emsp;Directive设置完毕，接下来需要对C代码进行综合，以生成RTL电路。
+
+&emsp;&emsp;点击Project->Project Settings->Synthesis，点击Top Function右边的Browse，选择`conv_core`作为Top Function，点击“OK”按钮，如图1-16所示。
+
+<center><img src="../pictures/step1/1-16.png" width = 550></center>
+<center>图1-16 选择Top Function</center>
+
+&emsp;&emsp;点击菜单栏的Solution->Run C Synthesis->Active Solution，或点击工具栏中形如绿色三角形的综合按钮，如图1-17所示。
+
+<center><img src="../pictures/step1/1-17.png" width = 450></center>
+<center>图1-17 点击以进行综合</center>
+
+&emsp;&emsp;综合完成后会自动显示综合报告。报告中包含了预估性能、预估资源情况、电路时延、模块接口等信息，如图1-18所示。
+
+<center><img src="../pictures/step1/1-18.png" width = 400></center>
+<center>图1-18 综合报告</center>
+
+### 1.6 C/RTL协同仿真（非必要）
+
+​	运行C/RTL Co-Sim时，会调用HDL仿真工具。
+
+&emsp;&emsp;点击Solution->Run C/RTL Cosimluation，或点击工具条中形如对号的按钮，如图1-19所示。
+
+<center><img src="../pictures/step1/1-19.png" width = 380></center>
+<center>图1-19 点击进行C/RTL联合仿真</center>
+
+&emsp;&emsp;在弹出的窗口中选中仿真工具为Vivado Simulator，语言选中Verilog，Dump Trace选择all，如图1-20所示。
+
+<center><img src="../pictures/step1/1-20.png" width = 450></center>
+<center>图1-20 联合仿真设置</center>
+
+&emsp;&emsp;仿真报告显示了仿真的结果以及时延等信息，如图1-21所示。
+
+<center><img src="../pictures/step1/1-21.png" width = 350></center>
+<center>图1-21 联合仿真报告</center>
+
+&emsp;&emsp;还可点击工具条中的波形按钮以查看波形，此时将打开Vivado的仿真波形界面，如图1-22所示。
+
+<center><img src="../pictures/step1/1-22.png"></center>
+<center>图1-22 查看仿真波形</center>
+
+### 1.7 导出RTL并打包成IP核/Export RTL
+
+​	点击菜单栏的Solution->Export RTL，或点击工具条中形如棕色箱子的按钮，如图1-23所示。
+
+<center><img src="../pictures/step1/1-23.png" width = 350></center>
+<center>图1-23 点击以导出RTL</center>
+
+&emsp;&emsp;随后将弹出导出IP核的设置窗口，保持默认即可，点击“OK”按钮。
+
+&emsp;&emsp;IP核导出成功后，可在主界面/综合界面左侧的工程目录Solution1->impl->ip中找到.zip格式的IP核，如图1-24所示。
+
+<center><img src="../pictures/step1/1-24.png" width = 250></center>
+<center>图1-24 查看导出的IP核</center>
+
