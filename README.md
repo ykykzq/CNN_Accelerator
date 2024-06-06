@@ -19,8 +19,8 @@
 
 - Vivado 2018.3，请在[此处](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/archive.html)找到安装包。经检验可以在Windows11系统中安装。
 - MobaXTerm。可以直接安装[最新版](https://mobaxterm.mobatek.net/)。
-- 开发板驱动程序。请在[此处](./软件/镜像烧录)找到安装包与安装方法。
-- 镜像制作工具。请在[此处](./软件/开发板驱动)找到该程序。
+- 开发板驱动程序。请在[此处](./tools/镜像烧录)找到安装包与安装方法。
+- 镜像制作工具。请在[此处](./tools/开发板驱动)找到该程序。
 
 ## 项目结构
 
