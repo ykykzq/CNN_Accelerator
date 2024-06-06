@@ -13,7 +13,7 @@
 
 - IP_Core.zip
 
-即用于卷积操作的IP核。如果你实在懒得去做实验，也可以在[这里](../../projects/Vivado" "HLS/out)直接找到该文件。
+即用于卷积操作的IP核。如果你实在懒得去做实验，也可以在[这里](../../projects/Vivado\ HLS/out)直接找到该文件。
 
 ## 步骤
 
