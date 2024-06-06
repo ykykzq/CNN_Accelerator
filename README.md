@@ -1,4 +1,4 @@
-# 基于PYQN的深度学习加速器
+# 基于PYNQ的深度学习加速器
 
 ## 概述（待完善）
 
@@ -38,7 +38,7 @@
 │  │  │  └─pool
 │  │  ├─out                     # 放置综合生成的.bit等
 │  │  └─project_1               # Vivado工程文件
-│  │      
+│  │
 │  └─Vivado HLS
 │      ├─conv_core              # Vitis HLS工程文件
 │      ├─out
@@ -47,6 +47,7 @@
 │  ├─step1
 │  ├─step2
 │  └─step3                      # 上板所需文件，包括.ipynb、MNIST数据集等
+|
 └─tools                         # 完成实验必须用到的软件工具
     ├─PYNQ镜像
     ├─开发板驱动软件
